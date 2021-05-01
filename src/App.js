@@ -1,5 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
+require('dotenv').config()
+const apiKey = process.env.APIKEY;
+
 
 function App() {
   return (
