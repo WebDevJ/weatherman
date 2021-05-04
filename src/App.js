@@ -15,7 +15,7 @@ function App() {
       console.log(REACT_APP_apiKey)
       console.log(REACT_APP_baseURL)
 
-      fetch(`${REACT_APP_baseURL}weather?q=${query}&units=metric&APPID=${REACT_APP_apiKey}`)
+      fetch(`${REACT_APP_baseURL}weather?q=${query}&units=imperial&APPID=${REACT_APP_apiKey}`)
       .then(res => res.json())
       .then(result => {
         setWeather(result);
@@ -38,7 +38,7 @@ function App() {
 
   return (
     <div className={(typeof weather.main != "undefined") 
-      ? ((weather.main.temp > 16) 
+      ? ((weather.main.temp > 59) 
         ? 'app warm' 
         : 'app') 
       : 'app'}>
@@ -60,11 +60,11 @@ function App() {
             <div className="date">{fullDate}</div>
         </div>
         <div className="weather-box">
-          <div className="temp">{Math.round(weather.main.temp)}˚c</div>  
+          <div className="temp">{Math.round(weather.main.temp)}˚f</div>  
           <div className="weather">{weather.weather[0].main}</div>
         </div>
         </div>
-        ) : ('Please enter the name of a city above ')}
+        ) : ('Please enter the name of a city above ⬆️')}
       </main>
     </div>
   );
